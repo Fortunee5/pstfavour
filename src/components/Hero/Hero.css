@@ -1,0 +1,203 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mosaic Background Grid */
+.hero-mosaic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
+  z-index: 0;
+}
+
+.mosaic-cell {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.mosaic-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+/* Subtle hover effect on desktop */
+@media (hover: hover) {
+  .mosaic-cell:hover img {
+    transform: scale(1.1);
+  }
+}
+
+/* Dark overlay for text readability */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* Hero content - text overlay */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.hero-text {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  color: #f5e6e0;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 900;
+  margin-bottom: 30px;
+  line-height: 1.1;
+  color: white;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.hero-date {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-location {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Tablet view (769px to 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero-mosaic {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+/* Mobile view (max-width: 768px) */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+  }
+
+  /* 2 rows x 3 columns on mobile */
+  .hero-mosaic {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    letter-spacing: 1.5px;
+  }
+
+  .hero-date {
+    font-size: 24px;
+  }
+
+  .hero-location {
+    font-size: 16px;
+  }
+}
+
+/* Extra small mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  /* Optional: Could change to 2x3 vertical layout on very small screens */
+  .hero-mosaic {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-date {
+    font-size: 20px;
+  }
+
+  .hero-location {
+    font-size: 14px;
+  }
+}
+
+/* Animation for fade-in effect */
+.fade-in {
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional: Add animation to images on load */
+.mosaic-cell {
+  animation: imageReveal 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.mosaic-cell:nth-child(1) { animation-delay: 0.1s; }
+.mosaic-cell:nth-child(2) { animation-delay: 0.2s; }
+.mosaic-cell:nth-child(3) { animation-delay: 0.3s; }
+.mosaic-cell:nth-child(4) { animation-delay: 0.4s; }
+.mosaic-cell:nth-child(5) { animation-delay: 0.5s; }
+.mosaic-cell:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes imageReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

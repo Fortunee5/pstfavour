@@ -1,0 +1,122 @@
+.event-details {
+  padding: 100px 0;
+  background: white;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.detail-card {
+  text-align: center;
+  padding: 40px;
+  background: var(--soft-beige);
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.detail-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.detail-card h3 {
+  font-size: 28px;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.detail-time {
+  font-size: 20px;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.detail-location {
+  font-size: 18px;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.detail-description {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.venue-info {
+  text-align: center;
+  padding: 40px;
+  background: var(--accent-pink);
+  border-radius: 10px;
+}
+
+.venue-info h3 {
+  font-size: 32px;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.venue-name {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.venue-address {
+  font-size: 18px;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+.map-button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.map-button:hover {
+  background: #c19660;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .event-details {
+    padding: 60px 0;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .detail-card {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .details-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,80 @@
+.scroll-progress {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 60px;
+  height: 60px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+}
+
+.scroll-progress.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-progress:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+  fill: none;
+  stroke: #f0f0f0;
+}
+
+.progress-ring-fill {
+  fill: none;
+  stroke: var(--primary-color);
+  transition: stroke-dashoffset 0.35s;
+}
+
+.arrow-up {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: var(--primary-color);
+  font-weight: bold;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .scroll-progress {
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .progress-ring {
+    width: 50px;
+    height: 50px;
+  }
+
+  .progress-ring-bg,
+  .progress-ring-fill {
+    r: 20px;
+    cx: 25px;
+    cy: 25px;
+  }
+
+  .arrow-up {
+    font-size: 20px;
+  }
+}
