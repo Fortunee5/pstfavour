@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-/* Mosaic Background Grid */
+/* Mosaic Background Grid - 3 images in 1 row */
 .hero-mosaic {
   position: absolute;
   top: 0;
@@ -16,7 +16,7 @@
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
   z-index: 0;
 }
@@ -33,13 +33,14 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, filter 0.5s ease;
 }
 
 /* Subtle hover effect on desktop */
 @media (hover: hover) {
   .mosaic-cell:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    filter: brightness(1.1);
   }
 }
 
@@ -66,74 +67,135 @@
 }
 
 .hero-text {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  padding: 30px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
 }
 
 .hero-subtitle {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
+  font-family: var(--font-subheader);
+  font-size: 28px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
   color: #f5e6e0;
-  text-transform: uppercase;
+  text-transform: none;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(48px, 8vw, 96px);
-  font-weight: 900;
-  margin-bottom: 30px;
-  line-height: 1.1;
+/* Title wrapper for names layout */
+.hero-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 35px;
+}
+
+.hero-name {
+  font-family: var(--font-header);
+  font-size: 52px;
+  font-weight: normal;
   color: white;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  line-height: 1.1;
+  display: block;
+}
+
+.hero-ampersand {
+  font-family: var(--font-header);
+  font-size: 36px;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  display: block;
+  margin: 0;
+  line-height: 0.8;
 }
 
 .hero-date {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
+  font-family: var(--font-subheader);
+  font-size: 36px;
   margin-bottom: 15px;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-location {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Tablet view (769px to 1024px) */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .hero-mosaic {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+/* Tablet view */
+@media (max-width: 1024px) {
+  .hero-title-wrapper {
+    gap: 3px;
+  }
+
+  .hero-name {
+    font-size: 46px;
+    line-height: 1.1;
+  }
+
+  .hero-ampersand {
+    font-size: 32px;
+    margin: 0;
+    line-height: 0.8;
+  }
+
+  .hero-subtitle {
+    font-size: 24px;
+  }
+
+  .hero-date {
+    font-size: 32px;
   }
 }
 
-/* Mobile view (max-width: 768px) */
+/* Mobile view */
 @media (max-width: 768px) {
   .hero {
     min-height: 100vh;
   }
 
-  /* 2 rows x 3 columns on mobile */
   .hero-mosaic {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+  }
+
+  .hero-text {
+    padding: 20px 15px;
   }
 
   .hero-subtitle {
-    font-size: 14px;
-    letter-spacing: 1.5px;
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+
+  .hero-title-wrapper {
+    gap: 2px;
+    margin-bottom: 30px;
+  }
+
+  .hero-name {
+    font-size: 36px;
+    line-height: 1.1;
+  }
+
+  .hero-ampersand {
+    font-size: 28px;
+    margin: 0;
+    line-height: 0.8;
   }
 
   .hero-date {
-    font-size: 24px;
+    font-size: 28px;
+    margin-bottom: 12px;
   }
 
   .hero-location {
@@ -143,14 +205,62 @@
 
 /* Extra small mobile (max-width: 480px) */
 @media (max-width: 480px) {
-  /* Optional: Could change to 2x3 vertical layout on very small screens */
   .hero-mosaic {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
   }
 
-  .hero-title {
-    font-size: 36px;
+  .hero-text {
+    padding: 15px 10px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .hero-title-wrapper {
+    gap: 0;
+    margin-bottom: 25px;
+  }
+
+  .hero-name {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .hero-ampersand {
+    font-size: 24px;
+    margin: 0;
+    line-height: 0.7;
+  }
+
+  .hero-date {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .hero-location {
+    font-size: 14px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 380px) {
+  .hero-name {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .hero-ampersand {
+    font-size: 20px;
+    margin: 0;
+    line-height: 0.7;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
   }
 
   .hero-date {
@@ -158,7 +268,7 @@
   }
 
   .hero-location {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 
@@ -178,18 +288,23 @@
   }
 }
 
-/* Optional: Add animation to images on load */
+/* Staggered animation for images on load */
 .mosaic-cell {
   animation: imageReveal 0.8s ease-out forwards;
   opacity: 0;
 }
 
-.mosaic-cell:nth-child(1) { animation-delay: 0.1s; }
-.mosaic-cell:nth-child(2) { animation-delay: 0.2s; }
-.mosaic-cell:nth-child(3) { animation-delay: 0.3s; }
-.mosaic-cell:nth-child(4) { animation-delay: 0.4s; }
-.mosaic-cell:nth-child(5) { animation-delay: 0.5s; }
-.mosaic-cell:nth-child(6) { animation-delay: 0.6s; }
+.mosaic-cell:nth-child(1) { 
+  animation-delay: 0.1s; 
+}
+
+.mosaic-cell:nth-child(2) { 
+  animation-delay: 0.2s; 
+}
+
+.mosaic-cell:nth-child(3) { 
+  animation-delay: 0.3s; 
+}
 
 @keyframes imageReveal {
   from {
@@ -199,5 +314,74 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+/* Border between images for visual separation */
+.mosaic-cell:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Optional: Add parallax effect on scroll */
+@media (min-width: 769px) {
+  .hero-mosaic {
+    transform: translateY(0);
+    transition: transform 0.5s ease-out;
+  }
+}
+
+/* Ensure text remains readable on all backgrounds */
+.hero-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, transparent 70%);
+  border-radius: 10px;
+  z-index: -1;
+}
+
+/* Fine-tuning for very long names */
+@media (max-width: 600px) {
+  .hero-name {
+    font-size: 32px;
+  }
+  
+  .hero-ampersand {
+    font-size: 26px;
+  }
+}
+
+/* Landscape mobile adjustment */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh;
+  }
+  
+  .hero-text {
+    padding: 15px;
+  }
+  
+  .hero-subtitle {
+    margin-bottom: 15px;
+  }
+  
+  .hero-title-wrapper {
+    margin-bottom: 20px;
+  }
+  
+  .hero-name {
+    font-size: 32px;
+  }
+  
+  .hero-ampersand {
+    font-size: 24px;
+  }
+  
+  .hero-date {
+    font-size: 24px;
+    margin-bottom: 10px;
   }
 }

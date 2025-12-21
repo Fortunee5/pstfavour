@@ -5,10 +5,11 @@
 }
 
 .countdown-title {
-  font-size: 48px;
+  font-family: var(--font-header);
+  font-size: 56px;
   color: var(--text-dark);
   margin-bottom: 60px;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 .countdown-boxes {
@@ -36,13 +37,13 @@
   font-size: 64px;
   font-weight: 700;
   color: var(--primary-color);
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-body);
   line-height: 1;
   margin-bottom: 10px;
 }
 
 .countdown-label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 2px;

@@ -5,10 +5,11 @@
 
 .section-title {
   text-align: center;
-  font-size: 48px;
+  font-family: var(--font-header);
+  font-size: 56px;
   color: var(--text-dark);
   margin-bottom: 60px;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 .story-content {
@@ -26,13 +27,15 @@
 }
 
 .story-text h3 {
-  font-size: 32px;
+  font-family: var(--font-subheader);
+  font-size: 36px;
   color: var(--primary-color);
   margin-bottom: 25px;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 .story-text p {
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 20px;

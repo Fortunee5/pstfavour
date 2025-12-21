@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-top">
           <div className="footer-couple">
-            <h2 className="footer-names">Favour & Tosin</h2>
+            <h2 className="footer-names">#PerFecT2026</h2>
             <p className="footer-date">January 15, 2026</p>
           </div>
           
@@ -66,9 +66,8 @@ const Footer = () => {
             <p>honor us with a gift,</p>
             <p>we are registered at:</p>
             <div className="registry-links">
-              <span>Favour</span>
-              <span>•</span>
-              <span>Tosin</span>
+              <span>#PerFecT2026</span>
+              
               
             </div>
           </div>

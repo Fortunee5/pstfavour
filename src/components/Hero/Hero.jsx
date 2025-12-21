@@ -9,7 +9,7 @@ import img6 from '../../assets/photo10.jpg';
 
 const Hero = () => {
   
-  const mosaicImages = [img1, img2, img3, img4, img5, img6  ];
+  const mosaicImages = [img1, img3, img6  ];
 
   return (
     <section id="home" className="hero">
@@ -24,9 +24,13 @@ const Hero = () => {
       <div className="hero-content">
         <div className="hero-text fade-in">
           <h3 className="hero-subtitle">We're Getting Married</h3>
-          <h1 className="hero-title">Favour & Tosin</h1>
+          <div className="hero-title-wrapper">
+            <span className="hero-name">Pastor Oluwatosin Adetutu</span>
+            <span className="hero-ampersand">&</span>
+            <span className="hero-name">Pastor Favour NewMan</span>
+          </div>
           <p className="hero-date">January 15, 2026</p>
-          <p className="hero-location">The Grand Estate • Lagos, Nigeria</p>
+          <p className="hero-location">The Grand Estate • Los Angeles, California</p>
         </div>
       </div>
     </section>

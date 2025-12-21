@@ -13,7 +13,9 @@ const EventDetails = () => {
         <h2 className="section-title">Event Details</h2>
         <div className="details-grid">
           <div className="detail-card">
-            <div className="detail-icon">🎊</div>
+            <div className="detail-icon">
+              <span className="icon-emoji">🎊</span>
+            </div>
             <h3>Ceremony</h3>
             <p className="detail-time">4:00 PM</p>
             <p className="detail-location">The Grand Estate Gardens</p>
@@ -23,7 +25,9 @@ const EventDetails = () => {
           </div>
           
           <div className="detail-card">
-            <div className="detail-icon">🥂</div>
+            <div className="detail-icon">
+              <span className="icon-emoji">🥂</span>
+            </div>
             <h3>Cocktail Hour</h3>
             <p className="detail-time">5:00 PM</p>
             <p className="detail-location">Estate Terrace</p>
@@ -33,7 +37,9 @@ const EventDetails = () => {
           </div>
           
           <div className="detail-card">
-            <div className="detail-icon">🍽️</div>
+            <div className="detail-icon">
+              <span className="icon-emoji">🍽️</span>
+            </div>
             <h3>Reception</h3>
             <p className="detail-time">6:30 PM</p>
             <p className="detail-location">Grand Ballroom</p>

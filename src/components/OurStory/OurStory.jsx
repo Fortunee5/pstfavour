@@ -16,18 +16,13 @@ const OurStory = () => {
           <div className="story-text">
             <h3>How We Met</h3>
             <p>
-              It all began on a beautiful spring day in 2020 when our paths crossed at a 
-              mutual friend's garden party. What started as a casual conversation about 
-              travel and literature turned into hours of deep connection and laughter.
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
             </p>
             <p>
-              Five years later, after countless adventures, shared dreams, and unwavering 
-              support for each other, we're ready to begin the next chapter of our journey 
-              together as husband and wife.
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
             </p>
             <p>
-              We can't wait to celebrate this special day with all of our beloved family 
-              and friends who have been part of our story.
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
             </p>
           </div>
         </div>

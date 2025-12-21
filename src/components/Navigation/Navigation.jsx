@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Navigation.css';
+import logoImage from '../../assets/logoImage.png';
 
 const Navigation = ({ scrolled }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,7 +21,9 @@ const Navigation = ({ scrolled }) => {
     <nav className={`navigation ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <div className="nav-logo">
-          <h2>F & T</h2>
+          
+          <img src={logoImage} alt="" /> 
+        
         </div>
         
         <div className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>

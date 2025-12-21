@@ -15,18 +15,25 @@ html {
 }
 
 body {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-body);
   color: #4a4a4a;
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
+h1, h2 {
+  font-family: var(--font-header);
   color: #2c2c2c;
+  font-weight: normal;
+}
+
+h3, h4, h5, h6 {
+  font-family: var(--font-subheader);
+  color: #2c2c2c;
+  font-weight: normal;
 }
 
 p {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   color: #666666;
 }
 
@@ -34,6 +41,11 @@ p {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.section-title {
+  font-family: var(--font-header) !important;
+  font-weight: normal !important;
 }
 
 .fade-in {
