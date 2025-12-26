@@ -21,9 +21,9 @@
   z-index: 0;
 }
 
-/* Mobile: 2 images in 1 row */
+/* Mobile: Single image full screen */
 .hero-mosaic.mobile-mosaic {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
 }
 
 .mosaic-cell {
@@ -164,46 +164,79 @@
   }
 }
 
-/* Mobile view - 2 images instead of 3 */
+/* Mobile view - Single FULL SCREEN image */
 @media (max-width: 768px) {
   .hero {
+    position: relative;
     height: 100vh;
-    min-height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile browsers */
+    min-height: -webkit-fill-available; /* iOS Safari fix */
+    width: 100vw;
+    margin: 0;
+    padding: 0;
   }
 
-  /* 2-column layout on mobile */
+  /* Single image layout on mobile - FULL COVERAGE */
   .hero-mosaic {
-    position: absolute;
+    position: fixed; /* Changed from absolute to fixed */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    display: block; /* Changed from grid to block */
   }
 
   .mosaic-cell {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
   }
 
   .mosaic-cell img {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100vw;
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: auto;
+    height: auto;
+    max-width: none;
     object-fit: cover;
     object-position: center;
   }
 
-  /* Slightly darker overlay on mobile for better text readability */
+  /* Ensure overlay covers full screen */
   .hero-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     background: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Center content on mobile */
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    padding: 0;
   }
 
   .hero-text {
     padding: 20px 15px;
     background: rgba(0, 0, 0, 0.4);
+    max-width: 100%;
   }
 
   .hero-subtitle {
@@ -238,21 +271,30 @@
   }
 }
 
-/* Small Mobile - maintain 2-column layout */
+/* Small Mobile - maintain full screen coverage */
 @media (max-width: 480px) {
   .hero {
     height: 100vh;
-    min-height: 100vh;
+    height: 100dvh;
+    width: 100vw;
   }
 
   .hero-mosaic {
-    height: 100%;
-    grid-template-columns: repeat(2, 1fr);
+    height: 100vh;
+    height: 100dvh;
+    width: 100vw;
+  }
+
+  .mosaic-cell {
+    height: 100vh;
+    height: 100dvh;
+    width: 100vw;
   }
 
   .mosaic-cell img {
-    object-fit: cover;
-    object-position: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   .hero-text {
@@ -363,9 +405,18 @@
   }
 }
 
-/* Border between images for visual separation */
-.mosaic-cell:not(:last-child) {
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+/* Border between images for visual separation - desktop only */
+@media (min-width: 769px) {
+  .mosaic-cell:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Remove borders on mobile */
+@media (max-width: 768px) {
+  .mosaic-cell:not(:last-child) {
+    border-right: none;
+  }
 }
 
 /* Ensure text remains readable on all backgrounds */
@@ -385,14 +436,17 @@
 @media (max-height: 600px) and (orientation: landscape) {
   .hero {
     min-height: 100vh;
+    height: 100vh;
   }
 
   .hero-mosaic {
-    height: 100%;
-    grid-template-columns: repeat(2, 1fr);
+    height: 100vh;
+    width: 100vw;
   }
 
   .mosaic-cell img {
+    min-width: 100vw;
+    min-height: 100vh;
     object-fit: cover;
   }
   
@@ -435,5 +489,17 @@
   
   .hero-ampersand {
     font-size: 22px;
+  }
+}
+
+/* iOS specific fixes for full screen */
+@supports (-webkit-touch-callout: none) {
+  .hero {
+    height: -webkit-fill-available;
+  }
+  
+  .hero-mosaic,
+  .mosaic-cell {
+    height: -webkit-fill-available;
   }
 }
