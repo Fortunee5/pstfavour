@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-/* Mosaic Background Grid - 3 images in 1 row */
+/* Desktop: Mosaic Background Grid - 3 images in 1 row */
 .hero-mosaic {
   position: absolute;
   top: 0;
@@ -19,6 +19,11 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
   z-index: 0;
+}
+
+/* Mobile: 2 images in 1 row */
+.hero-mosaic.mobile-mosaic {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .mosaic-cell {
@@ -159,14 +164,14 @@
   }
 }
 
-/* Mobile view - SAME AS DESKTOP (full screen coverage) */
+/* Mobile view - 2 images instead of 3 */
 @media (max-width: 768px) {
   .hero {
     height: 100vh;
     min-height: 100vh;
   }
 
-  /* Keep the same 3-column layout with full coverage */
+  /* 2-column layout on mobile */
   .hero-mosaic {
     position: absolute;
     top: 0;
@@ -174,7 +179,7 @@
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
   }
 
@@ -187,7 +192,7 @@
   .mosaic-cell img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Keep cover to fill the screen */
+    object-fit: cover;
     object-position: center;
   }
 
@@ -233,7 +238,7 @@
   }
 }
 
-/* Small Mobile - maintain full screen coverage */
+/* Small Mobile - maintain 2-column layout */
 @media (max-width: 480px) {
   .hero {
     height: 100vh;
@@ -242,6 +247,7 @@
 
   .hero-mosaic {
     height: 100%;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .mosaic-cell img {
@@ -383,6 +389,7 @@
 
   .hero-mosaic {
     height: 100%;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .mosaic-cell img {
