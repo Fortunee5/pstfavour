@@ -12,6 +12,7 @@ import img9 from '../../assets/photo18.jpg';
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9 ];
 
@@ -24,6 +25,28 @@ const Gallery = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    // Prevent scrolling when modal is open
+    if (selectedImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Handle escape key
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') {
+        setSelectedImage(null);
+      }
+    };
+    window.addEventListener('keydown', handleEsc);
+
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage]);
+
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
@@ -34,6 +57,29 @@ const Gallery = () => {
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
+  };
+
+  const openLightbox = (image, index) => {
+    setSelectedImage(image);
+    setCurrentIndex(index);
+  };
+
+  const closeLightbox = () => {
+    setSelectedImage(null);
+  };
+
+  const nextImageInLightbox = (e) => {
+    e.stopPropagation();
+    const nextIndex = (currentIndex + 1) % images.length;
+    setSelectedImage(images[nextIndex]);
+    setCurrentIndex(nextIndex);
+  };
+
+  const prevImageInLightbox = (e) => {
+    e.stopPropagation();
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    setSelectedImage(images[prevIndex]);
+    setCurrentIndex(prevIndex);
   };
 
   return (
@@ -49,7 +95,11 @@ const Gallery = () => {
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
               >
                 {images.map((image, index) => (
-                  <div key={index} className="carousel-slide">
+                  <div 
+                    key={index} 
+                    className="carousel-slide"
+                    onClick={() => openLightbox(image, index)}
+                  >
                     <img src={image} alt={`Gallery ${index + 1}`} />
                   </div>
                 ))}
@@ -70,13 +120,35 @@ const Gallery = () => {
         ) : (
           <div className="gallery-grid">
             {images.map((image, index) => (
-              <div key={index} className="gallery-item">
+              <div 
+                key={index} 
+                className="gallery-item"
+                onClick={() => openLightbox(image, index)}
+              >
                 <img src={image} alt={`Gallery ${index + 1}`} />
+                <div className="gallery-overlay">
+                  <span className="view-icon">👁️ View</span>
+                </div>
               </div>
             ))}
           </div>
         )}
       </div>
+
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div className="lightbox" onClick={closeLightbox}>
+          <button className="lightbox-close" onClick={closeLightbox}>×</button>
+          <button className="lightbox-nav prev" onClick={prevImageInLightbox}>‹</button>
+          <button className="lightbox-nav next" onClick={nextImageInLightbox}>›</button>
+          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <img src={selectedImage} alt="Full view" />
+            <div className="lightbox-counter">
+              {currentIndex + 1} / {images.length}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

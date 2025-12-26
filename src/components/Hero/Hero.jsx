@@ -1,10 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import img1 from '../../assets/photo1.jpg';
-import img2 from '../../assets/photo2.jpg';
 import img3 from '../../assets/photo.jpg';
-import img4 from '../../assets/photo11.jpg';
-import img5 from '../../assets/photo6.jpg';
 import img6 from '../../assets/photo10.jpg';
 
 const Hero = () => {
@@ -29,8 +26,9 @@ const Hero = () => {
             <span className="hero-ampersand">&</span>
             <span className="hero-name">Pastor Favour NewMan</span>
           </div>
-          <p className="hero-date">January 15, 2026</p>
-          <p className="hero-location">The Grand Estate • Los Angeles, California</p>
+          <p className="hero-date">January 17, 2026</p>
+          <p className="hero-location">Christ Embassy Cornerstone Church
+LCA Car Park, Oregun, Ikeja, Lagos</p>
         </div>
       </div>
     </section>

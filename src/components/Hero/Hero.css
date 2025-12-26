@@ -96,17 +96,18 @@
 }
 
 .hero-name {
-  font-family: var(--font-header);
+  font-family: var(--font-names);
   font-size: 52px;
   font-weight: normal;
   color: white;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
   line-height: 1.1;
   display: block;
+  letter-spacing: 0.5px;
 }
 
 .hero-ampersand {
-  font-family: var(--font-header);
+  font-family: var(--font-names);
   font-size: 36px;
   color: var(--primary-color);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
@@ -129,6 +130,7 @@
   font-weight: 400;
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.4;
 }
 
 /* Tablet view */
@@ -157,19 +159,46 @@
   }
 }
 
-/* Mobile view */
+/* Mobile view - SAME AS DESKTOP (full screen coverage) */
 @media (max-width: 768px) {
   .hero {
+    height: 100vh;
     min-height: 100vh;
   }
 
+  /* Keep the same 3-column layout with full coverage */
   .hero-mosaic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
   }
 
+  .mosaic-cell {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .mosaic-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keep cover to fill the screen */
+    object-position: center;
+  }
+
+  /* Slightly darker overlay on mobile for better text readability */
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
   .hero-text {
     padding: 20px 15px;
+    background: rgba(0, 0, 0, 0.4);
   }
 
   .hero-subtitle {
@@ -183,36 +212,46 @@
   }
 
   .hero-name {
-    font-size: 36px;
-    line-height: 1.1;
+    font-size: 30px;
+    line-height: 1.2;
   }
 
   .hero-ampersand {
-    font-size: 28px;
+    font-size: 24px;
     margin: 0;
     line-height: 0.8;
   }
 
   .hero-date {
-    font-size: 28px;
+    font-size: 24px;
     margin-bottom: 12px;
   }
 
   .hero-location {
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 1.3;
   }
 }
 
-/* Extra small mobile (max-width: 480px) */
+/* Small Mobile - maintain full screen coverage */
 @media (max-width: 480px) {
+  .hero {
+    height: 100vh;
+    min-height: 100vh;
+  }
+
   .hero-mosaic {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
+    height: 100%;
+  }
+
+  .mosaic-cell img {
+    object-fit: cover;
+    object-position: center;
   }
 
   .hero-text {
     padding: 15px 10px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
   }
 
   .hero-subtitle {
@@ -226,36 +265,37 @@
   }
 
   .hero-name {
-    font-size: 28px;
-    line-height: 1.2;
+    font-size: 24px;
+    line-height: 1.3;
   }
 
   .hero-ampersand {
-    font-size: 24px;
+    font-size: 20px;
     margin: 0;
     line-height: 0.7;
   }
 
   .hero-date {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 10px;
   }
 
   .hero-location {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.3;
+    padding: 0 10px;
   }
 }
 
 /* Extra small devices */
 @media (max-width: 380px) {
   .hero-name {
-    font-size: 24px;
-    line-height: 1.2;
+    font-size: 20px;
+    line-height: 1.3;
   }
 
   .hero-ampersand {
-    font-size: 20px;
-    margin: 0;
+    font-size: 18px;
     line-height: 0.7;
   }
 
@@ -264,11 +304,11 @@
   }
 
   .hero-date {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .hero-location {
-    font-size: 13px;
+    font-size: 12px;
   }
 }
 
@@ -322,14 +362,6 @@
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Optional: Add parallax effect on scroll */
-@media (min-width: 769px) {
-  .hero-mosaic {
-    transform: translateY(0);
-    transition: transform 0.5s ease-out;
-  }
-}
-
 /* Ensure text remains readable on all backgrounds */
 .hero-text::before {
   content: '';
@@ -343,45 +375,58 @@
   z-index: -1;
 }
 
-/* Fine-tuning for very long names */
-@media (max-width: 600px) {
-  .hero-name {
-    font-size: 32px;
-  }
-  
-  .hero-ampersand {
-    font-size: 26px;
-  }
-}
-
 /* Landscape mobile adjustment */
 @media (max-height: 600px) and (orientation: landscape) {
   .hero {
     min-height: 100vh;
   }
+
+  .hero-mosaic {
+    height: 100%;
+  }
+
+  .mosaic-cell img {
+    object-fit: cover;
+  }
   
   .hero-text {
-    padding: 15px;
+    padding: 10px 15px;
   }
   
   .hero-subtitle {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    font-size: 16px;
   }
   
   .hero-title-wrapper {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   
   .hero-name {
-    font-size: 32px;
+    font-size: 24px;
   }
   
   .hero-ampersand {
-    font-size: 24px;
+    font-size: 20px;
   }
   
   .hero-date {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .hero-location {
+    font-size: 12px;
+  }
+}
+
+/* Fine-tuning for very long names on mobile */
+@media (max-width: 600px) {
+  .hero-name {
+    font-size: 26px;
+  }
+  
+  .hero-ampersand {
+    font-size: 22px;
   }
 }

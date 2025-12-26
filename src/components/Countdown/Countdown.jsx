@@ -3,7 +3,7 @@ import './Countdown.css';
 
 const Countdown = () => {
   const calculateTimeLeft = () => {
-    const targetDate = new Date('2026-01-15T00:00:00');
+    const targetDate = new Date('2026-01-17T00:00:00');
     const now = new Date();
     const difference = targetDate - now;
 
@@ -34,7 +34,7 @@ const Countdown = () => {
   return (
     <section className="countdown">
       <div className="container">
-        <h2 className="countdown-title">Counting Down to Our Special Day</h2>
+        <h2 className="countdown-title">Counting Up to Our Special Day</h2>
         <div className="countdown-boxes">
           <div className="countdown-box">
             <span className="countdown-number">{timeLeft.days || '0'}</span>

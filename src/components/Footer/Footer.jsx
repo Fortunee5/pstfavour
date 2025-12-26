@@ -95,7 +95,7 @@ const Footer = () => {
           </div>
 
           <div className="footer-copyright">
-            <p>© 2026 Favour & Tosin. Made with ❤️ for our special day</p>
+            <p>Made with ❤ for © #PerFecT2026</p>
           </div>
         </div>
       </div>

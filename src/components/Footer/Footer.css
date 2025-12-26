@@ -32,7 +32,7 @@
 }
 
 .footer-names {
-  font-family: var(--font-header);
+  font-family: var(--font-names);
   font-size: 56px;
   font-weight: normal;
   color: var(--primary-color);
