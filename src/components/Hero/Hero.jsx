@@ -19,7 +19,7 @@ const Hero = () => {
 
   // Different image arrays for mobile and desktop
   const desktopImages = [img1, img3, img6];
-  const mobileImages = [img1, img6];
+  const mobileImages = [img6]; // Only img6 for mobile
   
   // Select which images to use based on screen size
   const mosaicImages = isMobile ? mobileImages : desktopImages;

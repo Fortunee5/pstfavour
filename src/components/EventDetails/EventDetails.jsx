@@ -25,12 +25,12 @@ const EventDetails = () => {
           </div>
           
           <div className="detail-card">
-            <div className="detail-icon">
+            <div className="detail-icon"> 
               <span className="icon-emoji">🥂</span>
             </div>
             <h3>Church Wedding</h3>
             <p className="detail-time">11:00am</p>
-            <p className="detail-location">Sat, January 17th</p>
+            <p className="detail-location">Sat, January 17th, 2026</p>
             <p className="detail-description">
              Join us as we exchange our vows before God, family, and friends.
             </p>

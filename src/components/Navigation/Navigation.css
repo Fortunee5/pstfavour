@@ -6,14 +6,38 @@
   z-index: 1000;
   background: transparent;
   transition: all 0.3s ease;
-  padding: 15px 0; /* Slightly reduced to compensate for bigger logo */
+  padding: 15px 0;
 }
 
+/* When at top of page (not scrolled) */
+.navigation.at-top {
+  background: transparent;
+}
+
+.navigation.at-top .nav-links a {
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.navigation.at-top .mobile-menu-toggle span {
+  background: white;
+}
+
+/* When scrolled */
 .navigation.scrolled {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   padding: 10px 0;
+}
+
+.navigation.scrolled .nav-links a {
+  color: var(--text-dark);
+  text-shadow: none;
+}
+
+.navigation.scrolled .mobile-menu-toggle span {
+  background: var(--text-dark);
 }
 
 .nav-container {
@@ -25,31 +49,31 @@
   align-items: center;
 }
 
-/* Even Bigger Logo Image Styles */
+/* Logo Styles */
 .nav-logo {
   display: flex;
   align-items: center;
 }
 
 .nav-logo img {
-  height: 100px; /* Increased from 70px */
+  height: 100px;
   width: auto;
   object-fit: contain;
   transition: all 0.3s ease;
 }
 
-/* Adjust logo size when scrolled */
-.navigation.scrolled .nav-logo img {
-  height: 75px; /* Increased from 55px */
+/* Make logo white when at top */
+.nav-logo img.logo-white {
+  filter: brightness(0) invert(1);
 }
 
-/* Previous text style - kept for fallback */
-.nav-logo h2 {
-  font-family: var(--font-header);
-  font-size: 48px;
-  color: var(--primary-color);
-  font-weight: normal;
-  margin: 0;
+.nav-logo img.logo-default {
+  filter: none;
+}
+
+/* Adjust logo size when scrolled */
+.navigation.scrolled .nav-logo img {
+  height: 75px;
 }
 
 .nav-links {
@@ -58,17 +82,16 @@
 }
 
 .nav-links a {
-  color: var(--text-dark);
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   font-family: var(--font-body);
 }
 
 .nav-links a:hover {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
 }
 
 .mobile-menu-toggle {
@@ -81,14 +104,13 @@
 .mobile-menu-toggle span {
   width: 25px;
   height: 2px;
-  background: var(--text-dark);
   transition: all 0.3s ease;
 }
 
 /* Tablet View */
 @media (max-width: 1024px) {
   .nav-logo img {
-    height: 85px; /* Slightly smaller on tablet */
+    height: 85px;
   }
 
   .navigation.scrolled .nav-logo img {
@@ -103,11 +125,11 @@
   }
 
   .nav-logo img {
-    height: 70px; /* Increased from 55px */
+    height: 70px;
   }
 
   .navigation.scrolled .nav-logo img {
-    height: 55px; /* Increased from 45px */
+    height: 55px;
   }
 
   .mobile-menu-toggle {
@@ -116,7 +138,7 @@
 
   .nav-links {
     position: fixed;
-    top: 90px; /* Adjusted for bigger logo */
+    top: 90px;
     left: -100%;
     width: 100%;
     height: calc(100vh - 90px);
@@ -134,8 +156,10 @@
     left: 0;
   }
 
-  .nav-logo h2 {
-    font-size: 36px;
+  /* Mobile menu links always dark */
+  .nav-links.active a {
+    color: var(--text-dark) !important;
+    text-shadow: none !important;
   }
 }
 
@@ -158,24 +182,12 @@
 /* Extra Large Screens */
 @media (min-width: 1400px) {
   .nav-logo img {
-    height: 110px; /* Even bigger on large screens */
+    height: 110px;
   }
 
   .navigation.scrolled .nav-logo img {
     height: 80px;
   }
-}
-
-/* Ensure logo doesn't get cut off */
-.nav-logo {
-  min-height: 50px;
-  display: flex;
-  align-items: center;
-}
-
-/* Add smooth transition for all screen sizes */
-.nav-logo img {
-  transition: height 0.3s ease, transform 0.3s ease;
 }
 
 /* Optional: Add hover effect to logo */
