@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="footer-top">
           <div className="footer-couple">
             <h2 className="footer-names">#PerFecT2026</h2>
-            <p className="footer-date">January 15, 2026</p>
+            <p className="footer-date">January 17, 2026</p>
           </div>
           
           <div className="footer-quote">

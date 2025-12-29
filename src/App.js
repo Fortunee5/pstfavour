@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import './PastorNames.css';
 import Navigation from './components/Navigation/Navigation';
 import Hero from './components/Hero/Hero';
 import Countdown from './components/Countdown/Countdown';
@@ -10,7 +11,8 @@ import RSVP from './components/RSVP/RSVP';
 import Footer from './components/Footer/Footer';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 import ThankYouModal from './components/ThankYouModal/ThankYouModal';
-
+import './fonts.css';
+import './globalFontFix.css';
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);

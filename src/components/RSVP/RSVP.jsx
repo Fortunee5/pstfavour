@@ -9,45 +9,61 @@ const RSVP = ({ onSuccess }) => {
     guests: '1',
     message: ''
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  // REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyoheL6tIjCYIVORQ7J3B3iJLevlh02ACERPDqLvkrFE2aQVqH8JKNsBjVDWzEDnuLi/exec';
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+    setErrorMessage(''); // Clear error when user types
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage('');
     
-    // Create WhatsApp message
-    const message = `New RSVP Submission:\n\n` +
-      `Name: ${formData.fullName}\n` +
-      `Email: ${formData.email}\n` +
-      `Attendance: ${formData.attendance === 'yes' ? 'Will Attend' : 'Cannot Attend'}\n` +
-      `Number of Guests: ${formData.guests}\n` +
-      `Message: ${formData.message || 'No message'}`;
-    
-    // Encode message for URL
-    const encodedMessage = encodeURIComponent(message);
-    
-    // WhatsApp URL
-    const whatsappURL = `https://wa.me/2348144311841?text=${encodedMessage}`;
-    
-    // Open WhatsApp
-    window.open(whatsappURL, '_blank');
-    
-    // Trigger success animation
-    onSuccess();
-    
-    // Reset form
-    setFormData({
-      fullName: '',
-      email: '',
-      attendance: 'yes',
-      guests: '1',
-      message: ''
-    });
+    try {
+      // Send data to Google Sheets
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Important for Google Apps Script
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      // Since mode is 'no-cors', we won't get a readable response
+      // But if the request completes without error, we assume success
+      
+      // Trigger success animation
+      onSuccess();
+      
+      // Show success message
+      alert('Thank you for your RSVP! We look forward to celebrating with you!');
+      
+      // Reset form
+      setFormData({
+        fullName: '',
+        email: '',
+        attendance: 'yes',
+        guests: '1',
+        message: ''
+      });
+      
+    } catch (error) {
+      console.error('Error submitting RSVP:', error);
+      setErrorMessage('There was an error submitting your RSVP. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -66,6 +82,7 @@ const RSVP = ({ onSuccess }) => {
               value={formData.fullName}
               onChange={handleChange}
               required
+              disabled={isSubmitting}
             />
           </div>
           
@@ -78,6 +95,7 @@ const RSVP = ({ onSuccess }) => {
               value={formData.email}
               onChange={handleChange}
               required
+              disabled={isSubmitting}
             />
           </div>
           
@@ -89,6 +107,7 @@ const RSVP = ({ onSuccess }) => {
               value={formData.attendance}
               onChange={handleChange}
               required
+              disabled={isSubmitting}
             >
               <option value="yes">Yes, I'll be there</option>
               <option value="no">Sorry, can't make it</option>
@@ -104,6 +123,7 @@ const RSVP = ({ onSuccess }) => {
                 value={formData.guests}
                 onChange={handleChange}
                 required
+                disabled={isSubmitting}
               >
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -122,11 +142,22 @@ const RSVP = ({ onSuccess }) => {
               onChange={handleChange}
               rows="4"
               placeholder="Share your wishes or any dietary requirements..."
+              disabled={isSubmitting}
             />
           </div>
           
-          <button type="submit" className="submit-button">
-            Send RSVP
+          {errorMessage && (
+            <div className="error-message">
+              {errorMessage}
+            </div>
+          )}
+          
+          <button 
+            type="submit" 
+            className={`submit-button ${isSubmitting ? 'submitting' : ''}`}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Sending...' : 'Send RSVP'}
           </button>
         </form>
       </div>

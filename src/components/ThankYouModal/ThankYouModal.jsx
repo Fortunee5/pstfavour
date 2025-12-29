@@ -28,7 +28,7 @@ const ThankYouModal = ({ onClose }) => {
           We can't wait to celebrate with you on our special day!
         </p>
         <div className="modal-details">
-          <p className="modal-date">January 15, 2026</p>
+          <p className="modal-date">January 17, 2026</p>
           <p className="modal-location">The Grand Estate • Lagos, Nigeria</p>
         </div>
         <button className="modal-button" onClick={onClose}>

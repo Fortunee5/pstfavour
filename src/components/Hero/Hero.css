@@ -1,3 +1,23 @@
+/* Force Allura font - Add this at the VERY TOP of Hero.css */
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
+.hero-name,
+.hero-ampersand,
+.allura-font {
+  font-family: 'Allura', cursive !important;
+}
+
+/* Override any other font declarations */
+.hero .hero-text .hero-title-wrapper .hero-name {
+  font-family: 'Allura', cursive !important;
+}
+
+.hero .hero-text .hero-title-wrapper .hero-ampersand {
+  font-family: 'Allura', cursive !important;
+}
+
+/* Rest of your Hero.css styles below... */
+
 .hero {
   position: relative;
   height: 100vh;

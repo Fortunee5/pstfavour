@@ -95,3 +95,53 @@
     padding: 30px 20px;
   }
 }
+
+/* Add these to your existing RSVP.css */
+
+.submit-button.submitting {
+  background: #a08050;
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.submit-button:disabled {
+  cursor: not-allowed;
+}
+
+.error-message {
+  background: #fee;
+  color: #c00;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-family: var(--font-body);
+  border: 1px solid #fcc;
+}
+
+.form-group input:disabled,
+.form-group select:disabled,
+.form-group textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #f9f9f9;
+}
+
+/* Success Animation */
+@keyframes successPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 165, 116, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(212, 165, 116, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 165, 116, 0);
+  }
+}
+
+.submit-button.success {
+  animation: successPulse 1s;
+  background: #4caf50;
+}
