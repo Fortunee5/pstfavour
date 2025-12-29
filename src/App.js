@@ -11,7 +11,7 @@ import RSVP from './components/RSVP/RSVP';
 import Footer from './components/Footer/Footer';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 import ThankYouModal from './components/ThankYouModal/ThankYouModal';
-import './fonts.css';
+import './src/fonts.css';
 import './globalFontFix.css';
 function App() {
   const [scrolled, setScrolled] = useState(false);
