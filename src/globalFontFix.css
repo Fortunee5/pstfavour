@@ -1,0 +1,19 @@
+/* src/globalFontFix.css */
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
+/* Global override with maximum specificity */
+#root .App .hero .hero-content .hero-text .hero-title-wrapper .hero-name,
+#root .App .hero .hero-content .hero-text .hero-title-wrapper .hero-ampersand,
+.allura-font,
+[style*="Allura"] {
+  font-family: 'Allura', cursive !important;
+}
+
+/* Ensure font persists */
+.hero-name {
+  font-family: 'Allura', cursive !important;
+}
+
+.hero-ampersand {
+  font-family: 'Allura', cursive !important;
+}
