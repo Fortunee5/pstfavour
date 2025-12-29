@@ -1,0 +1,75 @@
+/* Import Orange Avenue Demo font from local files */
+@font-face {
+  font-family: 'Orange Avenue Demo';
+  src: 
+       url('./fonts/OrangeAvenueDemo.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Pastor Names Specific Styling with Orange Avenue Demo */
+.pastor-name {
+  font-family: 'Orange Avenue Demo', 'Pinyon Script', cursive !important;
+  font-size: 58px !important;
+  font-weight: 400 !important;
+  color: white !important;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4) !important;
+  line-height: 1.1 !important;
+  display: block !important;
+  letter-spacing: 1px !important;
+}
+
+.pastor-ampersand {
+  font-family: 'Orange Avenue Demo', 'Pinyon Script', cursive !important;
+  font-size: 42px !important;
+  color: #d4a574 !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4) !important;
+  display: block !important;
+  margin: 0 !important;
+  line-height: 0.8 !important;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .pastor-name {
+    font-size: 50px !important;
+  }
+  
+  .pastor-ampersand {
+    font-size: 36px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .pastor-name {
+    font-size: 32px !important;
+  }
+  
+  .pastor-ampersand {
+    font-size: 28px !important;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .pastor-name {
+    font-size: 28px !important;
+  }
+  
+  .pastor-ampersand {
+    font-size: 24px !important;
+  }
+}
+
+/* Extra Small */
+@media (max-width: 380px) {
+  .pastor-name {
+    font-size: 24px !important;
+  }
+  
+  .pastor-ampersand {
+    font-size: 20px !important;
+  }
+}
