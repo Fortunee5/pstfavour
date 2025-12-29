@@ -1,5 +1,5 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Dancing+Script:wght@400;500;600;700&family=Allura&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+/* Import Google Fonts - Allura is the substitute for Orange Avenue Demo */
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Parisienne&family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* CSS Variables */
 :root {
@@ -16,7 +16,7 @@
   --font-header: 'Great Vibes', cursive;
   --font-subheader: 'Parisienne', 'Dancing Script', cursive;
   --font-body: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  --font-names: 'Allura', 'Great Vibes', cursive;
+  --font-names: 'Allura', cursive; /* Allura is our Orange Avenue Demo substitute */
   
   /* Font Sizes */
   --fs-hero: clamp(56px, 10vw, 120px);
@@ -467,11 +467,6 @@ hr {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* Dark Mode Support (optional) */
-@media (prefers-color-scheme: dark) {
-  /* You can add dark mode styles here if needed */
 }
 
 /* High Contrast Mode Support */
