@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import img1 from '../../assets/photo1.jpg';
 import img3 from '../../assets/photo.jpg';
-import img6 from '../../assets/photo10.jpg';
+import img6 from '../../assets/photo29.jpg';
 
 const Hero = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);

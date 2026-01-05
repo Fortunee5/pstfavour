@@ -40,7 +40,7 @@ function App() {
       <Navigation scrolled={scrolled} />
       <Hero />
       <Countdown />
-      <OurStory />
+      {/*<OurStory />*/}
       <Gallery />
       <EventDetails />
       <RSVP onSuccess={handleRSVPSuccess} />

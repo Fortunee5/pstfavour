@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Navigation.css';
 
- import logoWhite from '../../assets/logoImage.png';
-import logoDefault from '../../assets/logoImage.png';
+ import logoWhite from '../../assets/PFT2026-white.png';
+import logoDefault from '../../assets/PFT2026-white.png';
 
 const Navigation = ({ scrolled }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
