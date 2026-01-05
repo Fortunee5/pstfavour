@@ -29,7 +29,8 @@ const ThankYouModal = ({ onClose }) => {
         </p>
         <div className="modal-details">
           <p className="modal-date">January 17, 2026</p>
-          <p className="modal-location">The Grand Estate • Lagos, Nigeria</p>
+          <p className="modal-location">Christ Embassy Cornerstone Church,
+LCA Car Park, Oregun, Ikeja, Lagos.</p>
         </div>
         <button className="modal-button" onClick={onClose}>
           OK

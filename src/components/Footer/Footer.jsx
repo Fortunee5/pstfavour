@@ -28,7 +28,6 @@ const Footer = () => {
             <h3>Quick Links</h3>
             <ul className="footer-links">
               <li><a onClick={() => scrollToSection('home')}>Home</a></li>
-              <li><a onClick={() => scrollToSection('story')}>Our Story</a></li>
               <li><a onClick={() => scrollToSection('gallery')}>Gallery</a></li>
               <li><a onClick={() => scrollToSection('details')}>Event Details</a></li>
               <li><a onClick={() => scrollToSection('rsvp')}>RSVP</a></li>
@@ -37,11 +36,11 @@ const Footer = () => {
 
           <div className="footer-section">
             <h3>Event Location</h3>
-            <p>The Grand Estate</p>
-            <p>Oregun, Ikeja</p>
+            <p>Christ Embassy Cornerstone Church,</p>
+            <p>LCA Car Park, Oregun, Ikeja,</p>
             <p>Lagos, Nigeria</p>
             <a 
-              href="https://www.google.com/maps/search/?api=1&query=Oregun+Ikeja+Lagos+Nigeria" 
+              href="https://www.google.com/maps/place/Christ+Embassy+LCA+Car+Park/@6.6061802,3.3647096,17z/data=!3m1!4b1!4m6!3m5!1s0x103b924d99012707:0x8ff054e8edc393d3!8m2!3d6.6061749!4d3.3672845!16s%2Fg%2F11c2061dz1?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" 
               target="_blank" 
               rel="noopener noreferrer"
               className="footer-map-link"
@@ -54,24 +53,12 @@ const Footer = () => {
             <h3>Contact Us</h3>
             <p>For any questions,</p>
             <p>please reach out:</p>
-            <p className="footer-email">love@perfect2026.com</p>
-            <p className="footer-phone">+234 814 431 1841</p>
+            <p className="footer-phone">+234 816 301 6049</p>
+            <p className="footer-phone">+234 805 297 7241</p>
+            <p className="footer-phone">+234 817 470 5704</p>
           </div>
 
-          <div className="footer-section">
-            <h3>Gift Registry</h3>
-            <p>Your presence at our wedding</p>
-            <p>is the greatest gift of all.</p>
-            <p>However, if you wish to</p>
-            <p>honor us with a gift,</p>
-            <p>we are registered at:</p>
-            <div className="registry-links">
-              <span>#PerFecT2026</span>
-              
-              
-            </div>
-          </div>
-        </div>
+           </div>
 
         <div className="footer-divider"></div>
 

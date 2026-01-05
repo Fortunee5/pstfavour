@@ -78,7 +78,7 @@
 
 .nav-links {
   display: flex;
-  gap: 40px;
+  gap: 35px;
 }
 
 .nav-links a {
@@ -176,6 +176,21 @@
   .nav-links {
     top: 80px;
     height: calc(100vh - 80px);
+  }
+}
+
+/* For larger screens */
+@media (min-width: 1400px) {
+  .nav-links {
+    gap: 40px;
+  }
+}
+
+/* For medium screens */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .nav-links {
+    gap: 30px;
+    font-size: 15px;
   }
 }
 

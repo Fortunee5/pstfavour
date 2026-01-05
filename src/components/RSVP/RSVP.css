@@ -1,147 +1,365 @@
-.rsvp {
-  padding: 100px 0;
-  background: var(--soft-beige);
+/* RSVP Modern Section */
+.rsvp-modern {
+  padding: 80px 0;
+  background: #f8f9fa;
+  min-height: 100vh;
 }
-.rsvp .section-title {
+
+.rsvp-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Section */
+.rsvp-header-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.rsvp-main-title {
   font-family: var(--font-header);
-  font-size: 56px;
-  font-weight: normal;
-  text-align: center;
+  font-size: 64px;
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
-.rsvp-subtitle {
-  text-align: center;
-  font-size: 18px;
-  color: var(--text-light);
-  margin-bottom: 40px;
+.rsvp-instruction {
   font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  line-height: 1.6;
 }
 
-.rsvp-form {
+.rsvp-notice {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-light);
+  font-style: italic;
+  line-height: 1.6;
   max-width: 600px;
   margin: 0 auto;
-  background: white;
-  padding: 50px;
-  border-radius: 10px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background: rgba(212, 165, 116, 0.1);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 5px;
 }
 
-.form-group {
+/* Form Styles */
+.rsvp-form-modern {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.form-group-modern {
   margin-bottom: 25px;
 }
 
-.form-group label {
+.form-label-modern {
   display: block;
-  margin-bottom: 10px;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
   color: var(--text-dark);
-  font-weight: 500;
-  font-family: var(--font-body);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+.asterisk {
+  color: #e74c3c;
+  margin-left: 2px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  color: #999;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.input-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: #999;
+}
+
+.dropdown-icon {
+  left: auto;
+  right: 15px;
+  pointer-events: none;
+}
+
+.form-input-modern,
+.form-select-modern {
   width: 100%;
-  padding: 15px;
-  font-size: 16px;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
+  padding: 12px 15px 12px 45px;
   font-family: var(--font-body);
-  transition: border-color 0.3s ease;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: #fafafa;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.form-select-modern {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 40px;
+}
+
+.form-input-modern:focus,
+.form-select-modern:focus {
   outline: none;
   border-color: var(--primary-color);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.15);
 }
 
-.form-group textarea {
-  resize: vertical;
+.form-input-modern::placeholder {
+  color: #aaa;
+  font-size: 14px;
 }
 
-.submit-button {
+/* Error Message */
+.error-message-modern {
+  background: #fff2f2;
+  color: #d32f2f;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  border: 1px solid #ffcdd2;
+}
+
+/* Submit Button */
+.submit-btn-modern {
   width: 100%;
+  padding: 15px 30px;
   background: var(--primary-color);
   color: white;
   border: none;
-  padding: 18px 40px;
+  border-radius: 8px;
+  font-family: var(--font-body);
   font-size: 16px;
-  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 30px;
+}
+
+.submit-btn-modern:hover {
+  background: #c19660;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(212, 165, 116, 0.3);
+}
+
+.submit-btn-modern.submitting {
+  background: #999;
+  cursor: wait;
+  transform: none;
+}
+
+.submit-btn-modern:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Gift Info Section - Separate from RSVP */
+.gift-info-section {
+  padding: 60px 0;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+.gift-info-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.gift-info-box {
+  background: linear-gradient(135deg, #fefefe 0%, #faf8f5 100%);
+  border: 2px solid var(--primary-color);
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(212, 165, 116, 0.1);
+}
+
+.gift-text-primary {
+  font-family: var(--font-subheader);
+  font-size: 22px;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.gift-text-secondary {
   font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+
+.payment-info {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.payment-item {
+  margin-bottom: 25px;
+}
+
+.payment-item:last-child {
+  margin-bottom: 0;
+}
+
+.payment-title {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 13px;
   font-weight: 600;
+  color: var(--text-light);
   text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.payment-detail {
+  display: block;
+  font-family: var(--font-header);
+  font-size: 26px;
+  color: var(--primary-color);
+  font-weight: normal;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.account-number {
+  font-family: 'Courier New', monospace;
+  font-size: 24px;
+  color: var(--text-dark);
+  font-weight: bold;
   letter-spacing: 1px;
 }
 
-.submit-button:hover {
-  background: #c19660;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+.bank-name {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
+.account-holder {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .rsvp {
+  .rsvp-modern {
     padding: 60px 0;
   }
 
-  .rsvp-form {
+  .rsvp-main-title {
+    font-size: 48px;
+  }
+
+  .rsvp-instruction {
+    font-size: 15px;
+  }
+
+  .rsvp-notice {
+    font-size: 13px;
+    padding: 15px;
+  }
+
+  .rsvp-form-modern {
     padding: 30px 20px;
   }
-}
 
-/* Add these to your existing RSVP.css */
-
-.submit-button.submitting {
-  background: #a08050;
-  cursor: wait;
-  opacity: 0.7;
-}
-
-.submit-button:disabled {
-  cursor: not-allowed;
-}
-
-.error-message {
-  background: #fee;
-  color: #c00;
-  padding: 15px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 14px;
-  font-family: var(--font-body);
-  border: 1px solid #fcc;
-}
-
-.form-group input:disabled,
-.form-group select:disabled,
-.form-group textarea:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  background: #f9f9f9;
-}
-
-/* Success Animation */
-@keyframes successPulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(212, 165, 116, 0.4);
+  .form-label-modern {
+    font-size: 14px;
   }
-  70% {
-    box-shadow: 0 0 0 10px rgba(212, 165, 116, 0);
+
+  .form-input-modern,
+  .form-select-modern {
+    font-size: 14px;
+    padding: 10px 12px 10px 40px;
   }
-  100% {
-    box-shadow: 0 0 0 0 rgba(212, 165, 116, 0);
+
+  .gift-info-box {
+    padding: 30px 20px;
+  }
+
+  .gift-text-primary {
+    font-size: 20px;
+  }
+
+  .gift-text-secondary {
+    font-size: 14px;
+  }
+
+  .payment-detail {
+    font-size: 22px;
+  }
+
+  .account-number {
+    font-size: 20px;
   }
 }
 
-.submit-button.success {
-  animation: successPulse 1s;
-  background: #4caf50;
+@media (max-width: 480px) {
+  .rsvp-main-title {
+    font-size: 36px;
+  }
+
+  .rsvp-form-modern {
+    padding: 25px 15px;
+  }
+
+  .submit-btn-modern {
+    font-size: 15px;
+    padding: 12px 25px;
+  }
+
+  .gift-text-primary {
+    font-size: 18px;
+  }
+
+  .account-number {
+    font-size: 18px;
+  }
+
+  .account-holder {
+    font-size: 16px;
+  }
 }

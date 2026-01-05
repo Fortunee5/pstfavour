@@ -32,11 +32,12 @@
 }
 
 .footer-names {
-  font-family: var(--font-names);
+  font-family: var(--font-header);
   font-size: 56px;
-  font-weight: normal;
+  font-weight: bold;
   color: var(--primary-color);
   margin-bottom: 10px;
+  letter-spacing: 2px;
 }
 
 .footer-date {
@@ -55,11 +56,17 @@
   margin: 0 auto;
 }
 
+/* Updated footer-middle to 3 columns */
 .footer-middle {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   margin-bottom: 50px;
+  align-items: start;
+}
+
+.footer-section {
+  text-align: center;
 }
 
 .footer-section h3 {
@@ -70,9 +77,17 @@
   font-weight: normal;
 }
 
-.footer-section p,
+.footer-section p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.8;
+  margin-bottom: 5px;
+}
 
-.footer-links a,
+.footer-links {
+  list-style: none;
+}
 
 .footer-links li {
   margin-bottom: 12px;
@@ -82,7 +97,7 @@
   color: #aaa;
   text-decoration: none;
   font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   cursor: pointer;
   transition: color 0.3s ease;
 }
@@ -97,7 +112,7 @@
   text-decoration: none;
   margin-top: 10px;
   font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   transition: all 0.3s ease;
 }
 
@@ -106,20 +121,12 @@
   transform: translateX(5px);
 }
 
-.footer-email,
 .footer-phone {
+  font-family: var(--font-body);
   color: var(--primary-color) !important;
   font-weight: 500 !important;
-  margin-top: 10px !important;
-}
-
-.registry-links {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
-  color: var(--primary-color);
-  font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
+  margin-top: 5px !important;
+  font-size: 15px;
 }
 
 .footer-divider {
@@ -163,25 +170,51 @@
   color: #888;
 }
 
+/* Tablet Responsive - 2 columns on tablet */
 @media (max-width: 992px) {
   .footer-middle {
     grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .footer-section:last-child {
+    grid-column: 1 / -1; /* Make last section span full width */
+    max-width: 400px;
+    margin: 0 auto;
   }
 }
 
+/* Mobile Responsive - Single column */
 @media (max-width: 768px) {
   .footer {
     padding: 60px 0 30px;
   }
 
   .footer-names {
-    font-size: 36px;
+    font-size: 42px;
   }
 
+  .footer-date {
+    font-size: 16px;
+  }
+
+  .footer-quote {
+    font-size: 20px;
+  }
+
+  /* Single column layout on mobile */
   .footer-middle {
     grid-template-columns: 1fr;
     gap: 30px;
     text-align: center;
+  }
+  
+  .footer-section:last-child {
+    max-width: none;
+  }
+
+  .footer-section h3 {
+    font-size: 22px;
   }
 
   .footer-bottom {
@@ -189,11 +222,49 @@
     gap: 20px;
   }
 
-  .footer-quote {
-    font-size: 18px;
+  .footer-copyright p {
+    font-size: 13px;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  .footer-names {
+    font-size: 36px;
   }
 
-  .registry-links {
-    justify-content: center;
+  .footer-quote {
+    font-size: 18px;
+    padding: 0 20px;
+  }
+
+  .footer-section h3 {
+    font-size: 20px;
+  }
+
+  .footer-section p {
+    font-size: 13px;
+  }
+
+  .footer-phone {
+    font-size: 14px;
+  }
+
+  .social-links a {
+    width: 35px;
+    height: 35px;
+  }
+
+  .social-links svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Extra spacing adjustments for better visual balance with 3 columns */
+@media (min-width: 1200px) {
+  .footer-middle {
+    max-width: 1000px;
+    margin: 0 auto 50px;
   }
 }

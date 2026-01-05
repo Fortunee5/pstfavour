@@ -9,12 +9,14 @@ import img6 from '../../assets/photo17.jpg';
 import img7 from '../../assets/photo9.jpg';
 import img8 from '../../assets/photo24.jpg';
 import img9 from '../../assets/photo18.jpg';
+import img10 from '../../assets/photo34.jpg';
+import img11 from '../../assets/photo35.jpg';
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9 ];
+  const images = [img3, img1, img2, img4, img11, img6, img7, img10, img5 ];
 
   useEffect(() => {
     const handleResize = () => {

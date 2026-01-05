@@ -43,10 +43,10 @@ const Navigation = ({ scrolled }) => {
         
         <div className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
           <a onClick={() => scrollToSection('home')}>Home</a>
-          {/*<a onClick={() => scrollToSection('story')}>Our Story</a>*/}
           <a onClick={() => scrollToSection('gallery')}>Gallery</a>
           <a onClick={() => scrollToSection('details')}>Details</a>
           <a onClick={() => scrollToSection('rsvp')}>RSVP</a>
+          <a onClick={() => scrollToSection('gift-registry')}>Gift Registry</a>
         </div>
 
         <div className="mobile-menu-toggle" onClick={toggleMenu}>

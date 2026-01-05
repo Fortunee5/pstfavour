@@ -52,8 +52,8 @@ const EventDetails = () => {
         <div className="venue-info">
           <h3>Church Venue</h3>
           <p className="venue-name">Christ Embassy Cornerstone Church</p>
-          <p className="venue-address">LCA Car Park, No 33, Olanrewaju Street,
-Off BillingsWay, Oregun, Ikeja, Lagos</p>
+          <p className="venue-address">Christ Embassy Cornerstone Church,
+LCA Car Park, Oregun, Ikeja, Lagos.</p>
           <button className="map-button" onClick={openMap}>View on Map</button>
         </div>
       </div>
