@@ -285,7 +285,7 @@ const RSVP = ({ onSuccess }) => {
       <section id="gift-registry" className="gift-info-section">
         <div className="gift-info-container">
           <div className="gift-info-box">
-            <p className="gift-text-primary">
+            <p className="gift-text-primary orange-avenue-font">
               Your presence at our wedding is the greatest gift of all.
             </p>
             
@@ -298,7 +298,7 @@ const RSVP = ({ onSuccess }) => {
             <div className="payment-info">
               <div className="payment-item">
                 <span className="payment-title">ESPEES USER NAME:</span>
-                <span className="payment-detail">@PERFECT2026</span>
+                <span className="payment-detail orange-avenue-font">@PERFECT2026</span>
               </div>
 
               <div className="payment-item">
