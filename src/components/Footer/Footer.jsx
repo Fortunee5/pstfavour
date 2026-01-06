@@ -19,7 +19,7 @@ const Footer = () => {
           </div>
           
           <div className="footer-quote">
-            <p>"Two souls, one heart, joined together in love"</p>
+            <p>"Two souls, one heart, joined together in Love"</p>
           </div>
         </div>
 
