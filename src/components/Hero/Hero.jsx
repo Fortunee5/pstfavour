@@ -29,7 +29,7 @@ const Hero = () => {
           </div>
         ))}
       </div>
-      <div className="hero-overlay"></div>
+      <div className="hero-overlay "></div>
       <div className="hero-content">
         <div className="hero-text fade-in">
           <h3 className="hero-subtitle">We're Getting Married</h3>
@@ -38,9 +38,11 @@ const Hero = () => {
             <span className="pastor-ampersand">&</span>
             <span className="pastor-name">Pastor Favour NewMan</span>
           </div>
-          <p className="hero-date">January 17, 2026</p>
+           <p className="hero-date">
+            January 17, 2026
+          </p>
           <p className="hero-location">Christ Embassy Cornerstone Church,
-LCA Car Park, Oregun, Ikeja, Lagos.</p>
+           <br className="mobile-only" /> LCA Car Park, Oregun, Ikeja, Lagos.</p>
         </div>
       </div>
     </section>

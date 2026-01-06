@@ -150,7 +150,7 @@ const RSVP = ({ onSuccess }) => {
             {/* Phone Number */}
             <div className="form-group-modern">
               <label className="form-label-modern">
-                Phone Number/WhatsApp Phone Number <span className="asterisk">*</span>
+                Phone Number <span className="asterisk">*</span>
               </label>
               <div className="input-wrapper">
                 <span className="input-icon">
@@ -285,7 +285,7 @@ const RSVP = ({ onSuccess }) => {
       <section id="gift-registry" className="gift-info-section">
         <div className="gift-info-container">
           <div className="gift-info-box">
-            <p className="gift-text-primary orange-avenue-font">
+            <p className="gift-text-primary orange-avenue-font" style={{ color: '#8B4513' }}>
               Your presence at our wedding is the greatest gift of all.
             </p>
             

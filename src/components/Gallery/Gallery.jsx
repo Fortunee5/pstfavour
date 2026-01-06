@@ -16,7 +16,7 @@ const Gallery = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const images = [img3, img1, img2, img4, img11, img6, img7, img10, img5 ];
+  const images = [img3, img8, img2, img4, img11, img6, img7, img10, img5 ];
 
   useEffect(() => {
     const handleResize = () => {

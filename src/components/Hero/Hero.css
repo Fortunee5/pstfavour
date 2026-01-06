@@ -83,7 +83,10 @@
 
 /* Hero content - text overlay */
 .hero-content {
-  position: relative;
+  position: absolute;
+  bottom: 20px; /* Very close to bottom */
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
   text-align: center;
   color: white;
@@ -95,7 +98,7 @@
 .hero-text {
   max-width: 900px;
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 25px 20px;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   backdrop-filter: blur(5px);
@@ -258,10 +261,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    bottom: 15px;
   }
 
   .hero-text {
-    padding: 25px 20px;
+    padding: 20px 15px;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(8px);
     border-radius: 15px;
@@ -372,6 +376,9 @@
     font-size: 13px;
     line-height: 1.3;
     padding: 0 10px;
+  }
+    .hero-content {
+    bottom: 10px; /* Almost touching bottom */
   }
 }
 
@@ -575,4 +582,132 @@
   min-height: -webkit-fill-available;
   min-height: -moz-available;
   min-height: fill-available;
+}
+/* Hide the break on desktop */
+.mobile-only {
+  display: none;
+}
+
+/* Show the break on mobile */
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block;
+  }
+}
+/* Desktop - Position at the very bottom */
+.hero-content {
+  position: absolute;
+  bottom: 20px !important; /* Very close to bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Keep hero-text styles */
+.hero-text {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 25px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+/* Tablet view */
+@media (max-width: 1024px) {
+  .hero-content {
+    bottom: 20px !important;
+  }
+}
+
+/* Mobile view - FORCE LOWER POSITIONING */
+@media (max-width: 768px) {
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  /* Force content to bottom on mobile */
+  .hero-content {
+    position: absolute !important;
+    bottom: 15px !important; /* Very close to bottom on mobile */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    padding: 0 20px !important;
+    z-index: 2 !important;
+  }
+
+  .hero-text {
+    padding: 20px 15px !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    max-width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Small Mobile - even lower */
+@media (max-width: 480px) {
+  .hero-content {
+    position: absolute !important;
+    bottom: 10px !important; /* Almost touching bottom */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .hero-text {
+    padding: 18px 12px !important;
+    background: rgba(0, 0, 0, 0.55) !important;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 380px) {
+  .hero-content {
+    position: absolute !important;
+    bottom: 8px !important; /* Very close to edge */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .hero-text {
+    padding: 15px 10px !important;
+  }
+}
+
+/* Landscape mobile - also keep low */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero-content {
+    bottom: 10px !important;
+  }
+
+  .hero-text {
+    padding: 10px 15px !important;
+  }
+}
+
+/* iOS specific - ensure it works on iPhone */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 768px) {
+    .hero-content {
+      position: absolute !important;
+      bottom: 15px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+    }
+  }
 }
